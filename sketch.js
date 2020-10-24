@@ -146,13 +146,13 @@ function draw() {
      
      if(mousePressedOver(restart)) {
       reset();
-      if(score>high){
-        high=score;
-      } 
+      
     }
      
    }
-  
+  if(score>high){
+        high=score;
+   } 
  
   //stop trex from falling down
   trex.collide(invisibleGround);
