@@ -104,7 +104,7 @@ function draw() {
     
     
     //jump when the space key is pressed
-    if(keyDown("space")&& trex.y >= 100) {
+    if(keyDown("space")&& trex.y >= 160) {
         trex.velocityY = -12;
         jumpSound.play();
     }
@@ -136,25 +136,27 @@ function draw() {
       ground.velocityX = 0;
       trex.velocityY = 0
       
-      if(score>high){
-         high=score;
-       }
+      
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
     cloudsGroup.setLifetimeEach(-1);
      
      obstaclesGroup.setVelocityXEach(0);
      cloudsGroup.setVelocityXEach(0);    
+     
+     if(mousePressedOver(restart)) {
+      reset();
+      if(score>high){
+        high=score;
+      } 
+    }
+     
    }
   
  
   //stop trex from falling down
   trex.collide(invisibleGround);
-  
-  if(mousePressedOver(restart)) {
-      reset();
-    }
-  
+   
   drawSprites();
 }
 
