@@ -136,7 +136,9 @@ function draw() {
       ground.velocityX = 0;
       trex.velocityY = 0
       
-     
+      if(score>high){
+         high=score;
+       }
       //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
     cloudsGroup.setLifetimeEach(-1);
@@ -152,9 +154,6 @@ function draw() {
   if(mousePressedOver(restart)) {
       reset();
     }
-  if(score>high){
-    high=score;
-  }
   
   drawSprites();
 }
